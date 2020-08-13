@@ -1,0 +1,39 @@
+$z-index: (
+  menu : 90,
+  alert : 50,
+  modal : 20
+);
+
+@function z-index($key) {
+  @return map-get($z-index, $key);
+}
+
+@mixin z-index($key) {
+  z-index: z-index($key);
+}
+
+.full {
+  position: fixed;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.modal {
+  background-color: red;
+  @include z-index(modal);
+}
+
+.alert {
+  background-color: blue;
+  @include z-index(alert);
+}
+
+.menu {
+  background-color: purple;
+  @include z-index(menu);
+}
+
+
